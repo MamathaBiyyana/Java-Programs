@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class PANVerification {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		if(s.length()==10)
+		{
+			for(int i=0;i<s.length();i++)
+			{
+				if(i<=2 || i==4 || i==9)
+				{
+					isAlpha(s.charAt(i));
+				}
+				else if(i==3)
+				{
+					if(!(s.charAt(i)=='T' || s.charAt(i)=='C' || s.charAt(i)=='P'))
+					{
+						ans();
+					}
+				}
+				else
+				{
+					isdigit(s.charAt(i));
+				}
+			}
+			System.out.print("PAN Verified Successfully");
+		}
+		else
+		{
+			System.out.print("Invalid PAN");
+		}
+	}
+	public static void isAlpha(char ch)
+	{
+		if(!(ch>='A' && ch<='Z'))
+		{
+			ans();
+		}
+	}
+	public static void isdigit(char ch)
+	{
+		if(!(ch>='1' && ch<='9'))
+		{
+			ans();
+		}
+	}
+	public static void ans()
+	{
+		System.out.print("Invalid PAN");
+		System.exit(0);
+	}
+}
